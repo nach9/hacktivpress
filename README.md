@@ -16,13 +16,13 @@ npm run dev
 npm install
 npm run start
 # will run on localhost:3000
-```
+```s
 
 ### Users Routes :
 |Routes|HTTP|Description|
 |------|-----|----------|
-|`/users/:id`|GET|Verify user by ID|
-|`/users`|POST|Register new User|
+|`/users/login`|POST|Verify user by ID|
+|`/users/register`|POST|Register new User|
 
 
 ### Article Routes :

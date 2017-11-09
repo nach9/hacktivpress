@@ -1,5 +1,8 @@
 const User = require('../models/users')
 var bcrypt = require('bcrypt');
+var jwt = require('jsonwebtoken');
+require('dotenv').config()
+
 const saltRounds = 10;
 
 class UserController {
@@ -8,7 +11,7 @@ class UserController {
     .then(result=>{
       res.status(200).json(result)
     }).catch(err=>{
-      console.error(err);
+      res.status(500).json(err)
     })
   }
 
@@ -23,7 +26,22 @@ class UserController {
     .then(result=>{
       res.status(200).json(result)
     }).catch(err=>{
-      console.error(err);
+      res.status(500).json(err)
+    })
+  }
+
+  static login (req,res) {
+    User.findOne({username:req.body.username})
+    .then(result=>{
+      let cpass=bcrypt.compareSync(req.body.password, result.password)
+      if (cpass) {
+        var tokenjwt = jwt.sign({ userid: result._id , username: result.username }, process.env.SECRET);
+        res.status(200).json(tokenjwt)
+      }else{
+        res.status(500).json('wrong password')
+      }
+    }).catch(err=>{
+      res.status(500).json(err)
     })
   }
 
