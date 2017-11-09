@@ -14,7 +14,7 @@ npm run dev
 ## Server Side
 ```
 npm install
-npm run
+npm run start
 # will run on localhost:3000
 ```
 
