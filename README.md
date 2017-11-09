@@ -30,6 +30,8 @@ npm run start
 |------|-----|----------|
 |`/articles`|GET|Get all Articles|
 |`/articles/:id`|GET|Get one Article by id|
-|`/articles`|POST|Add new Article|
-|`/articles`|PUT|Update Article with new info|
-|`/articles`|DELETE|Delete Article by ID|
+|`/articles/new`|POST|Add new Article|
+|`/articles/:id`|PUT|Update Article with new info|
+|`/articles/:id`|DELETE|Delete Article by ID|
+|`/articles/category`|POST|Search Article by Category|
+|`/articles/author`|POST|Search Article by Author|

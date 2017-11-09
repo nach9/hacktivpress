@@ -2,7 +2,7 @@ const Article = require('../models/articles')
 
 class ArticleController {
   static getAll(req,res){
-    Article.find()
+    Article.find().populate('author')
     .then(result=>{
       res.status(200).json(result)
     }).catch(err=>{
@@ -46,6 +46,23 @@ class ArticleController {
     })
   }
 
+  static findCategory(req,res){
+    Article.find({category: req.body.category})
+    .then(result=>{
+      res.status(200).json(result)
+    }).catch(err=>{
+      res.status(400).json(err)
+    })
+  }
+
+  static findAuthor(req,res){
+    Article.find({author:req.body.author})
+    .then(result=>{
+      res.status(200).json(result)
+    }).catch(err=>{
+      res.status(400).json(err)
+    })
+  }
 
 
 }
