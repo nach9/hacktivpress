@@ -1,10 +1,11 @@
 <template lang="html">
-  <div class="panel panel-info">
+  <div class="panel panel-primary">
     <div class="panel-heading">
-      <h3 class="panel-title">Panel info</h3>
+      <h3 class="panel-title">{{article.title}}</h3>
     </div>
     <div class="panel-body">
-      Panel content
+      <p>{{article.content}}</p>
+      <router-link to="" class="btn btn-warning btn-sm">Detail</router-link>
     </div>
   </div>
 
@@ -12,6 +13,7 @@
 
 <script>
 export default {
+  props: ['article']
 }
 </script>
 

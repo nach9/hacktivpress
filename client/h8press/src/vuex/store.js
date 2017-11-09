@@ -9,7 +9,7 @@ const $http = axios.create({
 })
 
 const state = {
-  articles = []
+  articles: []
 }
 
 const mutations = {
@@ -18,8 +18,9 @@ const mutations = {
   }
 }
 
-const action = {
-  getAllData () {
+const actions = {
+  getAllData ({ commit }) {
+    console.log('tarik data store')
     $http.get('/articles')
     .then(({data}) => {
       commit('getArticles', data)
@@ -31,7 +32,7 @@ const action = {
 const store = new Vuex.Store({
   state,
   mutations,
-  actions,
+  actions
 })
 
 export default store
